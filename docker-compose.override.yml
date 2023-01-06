@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+###> doctrine/doctrine-bundle ###
+  mysql:
+    ports:
+      - "53306:3306"
+###< doctrine/doctrine-bundle ###
+###> symfony/mailer ###
+  mailer:
+    image: schickling/mailcatcher
+    platform: linux/x86_64
+    container_name: tc-mailer
+    ports:
+      - "5025:1025"
+      - "5080:1080"
+###< symfony/mailer ###
